@@ -77,13 +77,12 @@ def get_services_info(colorized):
     stats['SABnzbd+'] = _colored(colorized, "Not installed", "grey")
 
   plex = run_cmd("service plexmediaserver status")
-  if plex["returncode"] == 0:
-    if "start/running" in plex["output"]:
-      stats['Plex'] = _colored(colorized, "Running", "green")
-    elif "stop/waiting" in plex["output"]:
+  if "Loaded: loaded" in plex["output"] and "Active: inactive" in plex["output"]:
       stats['Plex'] = _colored(colorized, "Not running", "yellow")
+  elif "Active: active" in plex["output"]:
+      stats['Plex'] = _colored(colorized, "Running", "green")
   else:
-    stats['Plex'] = _colored(colorized, "Not installed", "gray")
+      stats['Plex'] = _colored(colorized, "Not installed", "grey")
 
   rsnapshot = run_cmd("ls --full-time -ltr /srv/media/backups/snapshots/")
   if rsnapshot["returncode"] == 0:

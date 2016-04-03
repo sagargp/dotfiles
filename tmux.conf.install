@@ -70,10 +70,7 @@ bind -r L resize-pane -R 5
 bind m resize-pane -Z \; display-message "Zoom pane"
 
 # enable mouse usage
-setw -g mode-mouse on
-set -g mouse-select-pane on
-set -g mouse-resize-pane on
-set -g mouse-select-window on
+set -g mouse on
 
 # status bar
 set-option -g status on
