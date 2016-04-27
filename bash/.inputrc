@@ -1,0 +1,12 @@
+set editing-mode vi
+
+$if mode=vi
+    set keymap vi-command
+    Control-l: clear-screen
+    "gg": beginning-of-history
+    "G": end-of-history
+
+    set keymap vi-insert
+    Control-l: clear-screen
+    "jk": vi-movement-mode
+$endif
