@@ -1,10 +1,10 @@
 [user]
-	name  = Sagar Pandya
-	email = sagargp@gmail.com
+  name  = Sagar Pandya
+  email = sagargp@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore_global
-	editor       = /usr/bin/vim
+  excludesfile = ~/.gitignore_global
+  editor       = /usr/bin/vim
 
 [color]
   ui = auto
@@ -24,6 +24,9 @@
   added = yellow
   changed = green
   untracked = cyan
+
+[push]
+  default = simple
 
 [alias]
   co = checkout

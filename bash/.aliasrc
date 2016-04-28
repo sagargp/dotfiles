@@ -21,3 +21,6 @@ alias datafart="curl --data-binary @- datafart.com"
 alias tl="tmux ls"
 alias ta="tmux attach -t"
 alias tc="tmux new-session -s"
+
+alias stats='ssh -tt parabox "/invia/bin/jump stats"'
+alias ldrms='ssh -tt parabox "/invia/bin/jump ldpa1 3200"'

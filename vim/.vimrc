@@ -1,6 +1,7 @@
 " Set up vundle and plugins
 " Install Vundle with: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+set nocompatible                                 " I don't need Vim to be Vi compatible
 filetype off " necessary for Vundle
 
 set rtp+=~/.vim/bundle/vundle/
@@ -23,6 +24,7 @@ Bundle 'bling/vim-airline'
 Bundle 'godlygeek/tabular'
 " Fast filesystem nav for projects
 Bundle 'ctrlp.vim'
+let g:ctrlp_cmd = 'CtrlPMRU'
 " Show marks in the gutter
 Bundle 'ShowMarks7'
 " Jump around easily with <leader><leader>cmd
@@ -33,6 +35,14 @@ Bundle 'w0ng/vim-hybrid'
 Bundle 'chriskempson/base16-vim'
 " Git integration
 Bundle 'airblade/vim-gitgutter'
+" Pep8
+Bundle 'tell-k/vim-autopep8'
+Bundle 'hynek/vim-python-pep8-indent'
+" Ansible
+Bundle 'chase/vim-ansible-yaml'
+Bundle 'pearofducks/ansible-vim'
+" YCM
+Bundle 'Valloric/YouCompleteMe'
 
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
@@ -43,16 +53,16 @@ syntax on                                        " syntax highlighting
 let mapleader=","                                " Maps <leader> to ,
 colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
-set nocompatible                                 " I don't need Vim to be Vi compatible
-set mouse=a                                      " Mouse support in terminal Vim
+set background=dark
+set mouse=a                                      " Mouse lort in terminal Vim
 set encoding=utf-8                               " Text encoding should support more than ASCII
 set autochdir                                    " Set cwd to the current file's dir
 set ruler                                        " Show line, col, line% in bottom right corner
 set autoindent                                   " Auto indent new lines
 set smartindent                                  " Indent smartly after {'s, etc
 set expandtab                                    " Spaces instead of tabs
-set tabstop=2                                    " Cols per tab
-set shiftwidth=2                                 " Cols per shift (>> and <<)
+set tabstop=4                                    " Cols per tab
+set shiftwidth=4                                 " Cols per shift (>> and <<)
 set showmatch                                    " Briefly show the matching bracket when you type it (won't scroll)
 set guioptions-=T                                " No toolbar
 set guioptions-=M                                " No menu bar
@@ -84,6 +94,16 @@ set nospell                                      " I don't want spell checking
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+
+" Setup the wildmenu
+set wildmenu
+set wildmode=list:longest
+set wildignore+=*.git,*.svn
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.jpg,*.jpeg,*.bmp,*.gif,*.png,*.pdf
+set wildignore+=*.o
+set wildignore+=*.DS_Store
+set wildignore+=*.pyc
 
 " ------------
 " Mappings
@@ -169,3 +189,5 @@ augroup filetype_txt
   autocmd BufNewFile,BufRead *.txt setlocal spell
   autocmd BufNewFile,BufRead *.txt setlocal foldmethod=marker
 augroup END
+
+au! FileType python setl nosmartindent
