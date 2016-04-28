@@ -24,6 +24,7 @@ Bundle 'bling/vim-airline'
 Bundle 'godlygeek/tabular'
 " Fast filesystem nav for projects
 Bundle 'ctrlp.vim'
+let g:ctrlp_cmd = 'CtrlPMRU'
 " Show marks in the gutter
 Bundle 'ShowMarks7'
 " Jump around easily with <leader><leader>cmd
@@ -93,6 +94,16 @@ set nospell                                      " I don't want spell checking
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
+
+" Setup the wildmenu
+set wildmenu
+set wildmode=list:longest
+set wildignore+=*.git,*.svn
+set wildignore+=*.aux,*.out,*.toc
+set wildignore+=*.jpg,*.jpeg,*.bmp,*.gif,*.png,*.pdf
+set wildignore+=*.o
+set wildignore+=*.DS_Store
+set wildignore+=*.pyc
 
 " ------------
 " Mappings
