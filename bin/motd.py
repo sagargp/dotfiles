@@ -64,7 +64,7 @@ def get_services_info(colorized):
     elif dropbox["output"] == "Dropbox isn't running!":
       stats['Dropbox'] = _colored(colorized, "Not running", "yellow")
     else:
-      stats['Dropbox'] = _colored(colorized, dropbox["output"], "yellow")
+      stats['Dropbox'] = _colored(colorized, dropbox["output"].replace('\n', ' '), "yellow")
   else:
     stats['Dropbox'] = _colored(colorized, "Not installed", "grey")
 
