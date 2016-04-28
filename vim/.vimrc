@@ -1,6 +1,7 @@
 " Set up vundle and plugins
 " Install Vundle with: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+set nocompatible                                 " I don't need Vim to be Vi compatible
 filetype off " necessary for Vundle
 
 set rtp+=~/.vim/bundle/vundle/
@@ -52,7 +53,6 @@ let mapleader=","                                " Maps <leader> to ,
 colorscheme hybrid
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Highlight VCS conflict markers
 set background=dark
-set nocompatible                                 " I don't need Vim to be Vi compatible
 set mouse=a                                      " Mouse lort in terminal Vim
 set encoding=utf-8                               " Text encoding should support more than ASCII
 set autochdir                                    " Set cwd to the current file's dir
