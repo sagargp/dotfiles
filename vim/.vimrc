@@ -43,6 +43,8 @@ Bundle 'pearofducks/ansible-vim'
 " YCM
 Bundle 'Valloric/YouCompleteMe'
 
+Bundle 'rstacruz/sparkup'
+
 let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
 nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
