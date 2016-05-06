@@ -1,53 +1,43 @@
 " Set up vundle and plugins
 " Install Vundle with: git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-set nocompatible                                 " I don't need Vim to be Vi compatible
-filetype off " necessary for Vundle
+set nocompatible                                      " I don't need Vim to be Vi compatible
+filetype off                                          " necessary for Vundle
 
+" Plugins
 set rtp+=~/.vim/bundle/vundle/
 runtime autoload/vundle.vim
 
 call vundle#rc()
-" required for vundle
 Bundle 'pathogen.vim'
-" Vundle itself
 Bundle 'gmarik/vundle'
-" Explore the filesystem in a tree
+
+" code navigation
 Bundle 'scrooloose/nerdtree'
-" Persist the NERD tree across tabs
-Bundle 'jistr/vim-nerdtree-tabs' 
-" Browse tags in a split
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Tagbar'
-" Style the status line
-Bundle 'bling/vim-airline'
-" Align text on = or : easily
-Bundle 'godlygeek/tabular'
-" Fast filesystem nav for projects
 Bundle 'ctrlp.vim'
-let g:ctrlp_cmd = 'CtrlPMRU'
-" Show marks in the gutter
 Bundle 'ShowMarks7'
-" Jump around easily with <leader><leader>cmd
-Bundle 'EasyMotion'
-" Color theme
+Bundle 'Valloric/YouCompleteMe'
+
+" Eye candy
+Bundle 'bling/vim-airline'
+Bundle 'godlygeek/tabular'
 Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'chriskempson/base16-vim'
-" Git integration
+
+" tools integration
 Bundle 'airblade/vim-gitgutter'
-" Pep8
+Bundle 'tpope/vim-fugitive'
+
+" language/syntax specific plugins
 Bundle 'tell-k/vim-autopep8'
 Bundle 'hynek/vim-python-pep8-indent'
-" Ansible
+Bundle 'rstacruz/sparkup'
+Bundle 'pangloss/vim-javascript'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'pearofducks/ansible-vim'
-" YCM
-Bundle 'Valloric/YouCompleteMe'
-
-Bundle 'rstacruz/sparkup'
-
-let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
-nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
 
 " Basic Vim settings
 filetype plugin indent on
@@ -148,6 +138,13 @@ set completeopt-=preview                                                        
 let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"  " Only show marks set to these registers
 let g:airline#extensions#tabline#enabled=1                                      " Enable airline by default on new sessions
 set laststatus=2                                                                " see above
+
+let NERDTreeIgnore=['\.o$', '\~$', '\.pyc$']
+nnoremap <leader>G :GitGutterLineHighlightsToggle<CR>
+nnoremap < :GitGutterPrevHunk<CR>
+nnoremap > :GitGutterNextHunk<CR>
+
+let g:ctrlp_cmd = 'CtrlPMRU'
 
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
 nnoremap <leader>t :TagbarToggle<CR>
