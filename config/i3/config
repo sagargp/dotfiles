@@ -121,7 +121,9 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym Control+Mod1+BackSpace exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# lock screen
+bindsym Control+Mod1+l exec i3lock-extra -s -p
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -149,15 +151,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# make a nice bar
 bar {
-        status_command i3status
-        tray_output primary
+    i3bar_command /home/sagar/bin/panel
 }
 
 # remove window titlebars. who needs em?!
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
 
 # add gaps to windows :)
 gaps inner 6
